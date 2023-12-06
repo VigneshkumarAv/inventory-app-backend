@@ -56,8 +56,8 @@ const registerUser = asyncHandler( async (req,res) => {
         path: "/",
         httpOnly: true,
         expires: new Date(Date.now() + 1000 * 86400), //1day
-        /* sameSite: "none",
-        secure: true */
+        sameSite: "none",
+        secure: true
     })
 
     if(user) {
@@ -100,8 +100,8 @@ const loginUser = asyncHandler(async(req,res)=>{
         path: "/",
         httpOnly: true,
         expires: new Date(Date.now() + 1000 * 86400), //1day
-        /* sameSite: "none",
-        secure: true */
+        sameSite: "none",
+        secure: true
     })
 
     if(user && checkPassword){
@@ -121,8 +121,8 @@ const loginUser = asyncHandler(async(req,res)=>{
             path: "/",
             httpOnly: true,
             expires: new Date(0), //current date
-            /* sameSite: "none",
-            secure: true */
+            sameSite: "none",
+            secure: true
         })
         return res.status(200).json({message: "Successfully Logged Out"})
     })
