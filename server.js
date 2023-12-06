@@ -14,17 +14,22 @@ const path = require("path");
 const app = express();
 
 const PORT = process.env.PORT || 5000;
-
+const corsConfig = {
+    origin: true,
+    credentials: true,
+  };
 //Middlewares
 
 app.use(express.json())// to handle json data in application
 app.use(cookieParser());
 app.use(express.urlencoded({extended:false}))
 app.use(bodyParser.json()) // convert the data to object to easily access in backend
-app.use(cors({
+/* app.use(cors({
     origin: ["http://localhost:3000","https://inventory-app-vignesh.vercel.app"],
     credentials: true
-}));
+})); */
+app.use(cors(corsConfig));
+app.options('*', cors(corsConfig))
 
 app.use("/uploads", express.static(path.join(__dirname,"uploads")))
 
