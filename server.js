@@ -22,7 +22,7 @@ app.use(cookieParser());
 app.use(express.urlencoded({extended:false}))
 app.use(bodyParser.json()) // convert the data to object to easily access in backend
 app.use(cors({
-    origin: ["http://localhost:3000","https://inventory-app-vignesh.vercel.app/"],
+    origin: ["http://localhost:3000","https://inventory-app-vignesh.vercel.app"],
     credentials: true
 }));
 
